@@ -13,7 +13,7 @@ import { Toaster } from "@/components/ui/sonner"
 // import { useToast } from "@/hooks/use-toast"
 import { LoanPredictionResult } from "@/components/loan-prediction-results"
 import { toast } from "sonner"
-const backendURL = process.env.REACT_PUBLIC_BACKEND_URL
+// const backendURL = process.env.REACT_PUBLIC_BACKEND_URL
 export default function Home() {
   // const { toast } = useToast()
   const [formData, setFormData] = useState({
@@ -43,7 +43,7 @@ export default function Home() {
 
     try {
       // Django backend
-      const response = await fetch(backendURL+"/api/predict/", {
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL +"/api/predict/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,8 @@ export default function Home() {
       const data = await response.json()
       setPredictionResult(data)
       setIsLoading(false)
-    } catch {
+    } catch(err) {
+      console.log(err);
       toast.error("Failed to get prediction. Please try again.")
       setIsLoading(false)
     }
