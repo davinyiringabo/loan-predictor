@@ -13,7 +13,7 @@ import { Toaster } from "@/components/ui/sonner"
 // import { useToast } from "@/hooks/use-toast"
 import { LoanPredictionResult } from "@/components/loan-prediction-results"
 import { toast } from "sonner"
-
+const backendURL = process.env.REACT_PUBLIC_BACKEND_URL
 export default function Home() {
   // const { toast } = useToast()
   const [formData, setFormData] = useState({
@@ -43,7 +43,7 @@ export default function Home() {
 
     try {
       // Django backend
-      const response = await fetch("http://localhost:8000/api/predict/", {
+      const response = await fetch(backendURL+"/api/predict/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
