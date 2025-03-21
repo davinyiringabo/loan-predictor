@@ -9,10 +9,6 @@ A full-stack application that uses machine learning to predict student loan elig
 - [Technologies Used](#technologies-used)
 - [Setup and Installation](#setup-and-installation)
 - [Running the Application](#running-the-application)
-- [API Endpoints](#api-endpoints)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## 🔍 Overview
 
